@@ -1,0 +1,4 @@
+!*.kt
+ *.jar
+ *.code-workspace
+ *.gitignore
