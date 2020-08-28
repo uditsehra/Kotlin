@@ -37,7 +37,7 @@ fun arrayExample(){
 
 //******************************************************************************************************************************************************************************/
 
-//      Lists
+//************************************Lists********************************
 
 /*A list is an ordered collection of items.
 In Kotlin, lists can be either mutable (MutableList) or read-only (List).
@@ -87,10 +87,35 @@ fun listExamples(){
 
 //***********************************Maps*************************************************
 
+/*
+A map is a collection of key/value pairs, where each key is unique and is used to retrieve the corresponding value. For creating maps, there are functions mapOf() and mutableMapOf().
+A read-only view of a mutable map can be obtained by casting it to Map.
+*/
 
+fun mapExample(){
+    var mapOfNames = mapOf<Int, String>(0 to "Heil", 1 to "Hobo")       // This is a read only map, immutable, Map is immutable and hashMap is mutable.
+    var mapNameStrings = mapOf<String, String>("Name" to "Hobo", "Age" to "20", "Motto" to "Heil! Hobo")
+    //To access the value of a map
+    println(mapOfNames[1])  // prints Hobo
+    println(mapNameStrings["Motto"])
 
+    //HasMap
+    var hashMapNameStrings = hashMapOf("Name" to "Hobo", "Age" to "20", "Motto" to "Heil! Hobo")
+    hashMapNameStrings.set("Action","Kill them all")    //This is how you add another pair of key value pair to a hashMap, or you can also use a mutableMapOf<>()
+    println(hashMapNameStrings["Action"])
 
+    //Mutable Map
+    var mutableMap = mutableMapOf<Int, String>(1 to "kasjdfl", 2 to "aldskfja")
+    mutableMap.set(69, "this is 69")
+    println(mutableMap[69])
+
+    // Below line will give error cause mapOf is immutable.
+//    mapOfNames.set(100, "This is 100")
+}
+
+//**********************************************Main************************/
 fun main(){
 //    arrayExample()
-    listExamples()
+//    listExamples()
+    mapExample()
 }
