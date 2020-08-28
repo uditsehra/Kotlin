@@ -113,9 +113,67 @@ fun mapExample(){
 //    mapOfNames.set(100, "This is 100")
 }
 
+    //Maps Specific Operations
+    fun mapOperations(){
+
+    //*************************************Retriving keys and values*********************************************************************.
+    /*
+    Retrieving keys and values
+    For retrieving a value from a map, you must provide its key as an argument of the get() function. The shorthand [key] syntax is also supported. If the given key is not found, it returns null. There is also the function getValue() which has slightly different behavior: it throws an exception if the key is not found in the map. Additionally, you have two more options to handle the key absence:
+
+        getOrElse() works the same way as for lists: the values for non-existent keys are returned from the given lambda function.
+        getOrDefault() returns the specified default value if the key is not found.
+     */
+        val numerMap = mutableMapOf("One" to 1, "two" to 2, "three" to 3)
+        println(numerMap.get("One"))                    // 1
+        println(numerMap["One"])                        // 1
+        println(numerMap.getOrDefault("four", 10))      // 10
+        println(numerMap["five"])                       // null
+//        numerMap.getValue("six")                        // exception!
+
+    /*
+    To perform operations on all keys or all values of a map, you can retrieve them from the properties keys and values accordingly.
+    'keys' is a set of all map keys and values is a collection of all map values.
+    */
+    println(numerMap.keys)//[One, two, three]
+    println(numerMap.values)//[1, 2, 3]
+
+
+
+    //********************************************************************************************************************************* */
+    //***************************************Filtering********************************************************************************* */
+    
+    /*
+    You can filter maps with the filter() function as well as other collections. When calling filter() on a map, pass to it a predicate with a Pair as an argument.
+    This enables you to use both the key and the value in the filtering predicate.
+    */
+    numerMap.set("eleven1",11)
+    val filteredMap = numerMap.filter{(key, value) -> key.endsWith("e") && value > 1}
+    println(filteredMap)
+
+    /*
+    There are also two specific ways for filtering maps: by keys and by values. For each way, there is a function: filterKeys() and filterValues().
+    Both return a new map of entries which match the given predicate.
+    The predicate for filterKeys() checks only the element keys, the one for filterValues() checks only values.
+    */
+
+    val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
+    val filteredKeysMap = numbersMap.filterKeys { it.endsWith("1") }
+    val filteredValuesMap = numbersMap.filterValues { it < 10 }
+    println(filteredKeysMap)
+    println(filteredValuesMap)
+
+    /**********************************************************************************************************************************/
+
+    /***********************************************************Plus and Minus operator */
+    
+    
+    }
+
 //**********************************************Main************************/
 fun main(){
 //    arrayExample()
 //    listExamples()
-    mapExample()
+//    mapExample()
+    mapOperations()
 }
