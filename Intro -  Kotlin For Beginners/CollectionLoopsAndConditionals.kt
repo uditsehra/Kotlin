@@ -165,9 +165,67 @@ fun mapExample(){
 
     /**********************************************************************************************************************************/
 
-    /***********************************************************Plus and Minus operator */
+    /***********************************************************Plus and Minus operator*******************************************************/
     
-    
+    /*
+    Due to the key access to elements, plus (+) and minus (-) operators work for maps differently than for other collections.
+    plus returns a Map that contains elements of its both operands: a Map on the left and a Pair or another Map on the right.
+    When the right-hand side operand contains entries with keys present in the left-hand side Map, the result map contains the entries from the right side.
+    */
+    val numbersMap1 = mapOf("one" to 1, "two" to 2, "three" to 3)
+    println(numbersMap1 + Pair("four", 4))
+    println(numbersMap1 + Pair("one", 10))
+    println(numbersMap1 + mapOf("five" to 5, "one" to 11))
+    //minus creates a Map from entries of a Map on the left except those with keys from the right-hand side operand.
+    //So, the right-hand side operand can be either a single key or a collection of keys: list, set, and so on.
+    println(numbersMap1 - "one")
+    println(numbersMap1 - listOf("two", "four"))
+
+    //************************************************************************************************************************************ */
+
+    //*******************************************************Adding and Removing************************************************************************** */
+
+    /*
+    Adding and updating entries
+    To add a new key-value pair to a mutable map, use put().
+    When a new entry is put into a LinkedHashMap (the default map implementation), it is added so that it comes last when iterating the map.
+    In sorted maps, the positions of new elements are defined by the order of their keys.
+
+    To add multiple entries at a time, use putAll(). Its argument can be a Map or a group of Pairs: Iterable, Sequence, or Array.
+    */
+
+    val numbersMap2= mutableMapOf("one" to 1, "two" to 2)
+    numbersMap2.put("three", 3)
+    println(numbersMap2)
+
+    numbersMap2.putAll(setOf("four" to 4, "five" to 5, "six" to 6))
+    println(numbersMap2)
+
+    //Both put() and putAll() overwrite the values if the given keys already exist in the map. Thus, you can use them to update values of map entries.
+
+    /*
+    You can also add new entries to maps using the shorthand operator form. There are two ways:
+        plusAssign (+=) operator.
+        the [] operator alias for put().
+    */
+    numbersMap2["three"] = 3     // calls numbersMap.put("three", 3)
+    numbersMap2 += mapOf("four" to 4, "five" to 5)
+    println(numbersMap2)
+
+
+    /*
+    Removing entries
+
+    To remove an entry from a mutable map, use the remove() function.
+    When calling remove(), you can pass either a key or a whole key-value-pair.
+    If you specify both the key and value, the element with this key will be removed only if its value matches the second argument.
+    */
+
+    numbersMap2.remove("one")
+    println(numbersMap2)
+    numbersMap2.remove("three", 4)            //doesn't remove anything
+    println(numbersMap2)
+
     }
 
 //**********************************************Main************************/
