@@ -51,6 +51,6 @@ fun getUser(name:String, age:Int, isActive:Boolean):String{
 // varargs basicallly allows us to send multiple values in arguments or it allows us to use multiple parameters as arguments when we don't know that how many input does the user is going to provide us.
 fun printArgs(vararg number:Int)
 {
-    print(number.size)
+    println("The size is ${number.size}")
     for (no in number) println(no)
 }
