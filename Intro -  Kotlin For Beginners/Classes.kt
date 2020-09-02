@@ -131,6 +131,43 @@ class ConstructorExample(accNo:Int, name: String, ammount: Int)
     }
 }
 
+//********************************************************************************************************************************
+
+/**************************************************************Secondary Constructor**********************************************/
+/*
+
+The class can also declare secondary constructors, which are prefixed with constructor:
+
+            class Person {
+                var children: MutableList<Person> = mutableListOf<>()
+                constructor(parent: Person) {
+                    parent.children.add(this)
+                }
+            }
+
+*/
+//Examples of Secondary Constructor
+
+class School {
+    var regNo:Int = 1
+    var name: String = ""
+    var fatherName: String = ""
+    var motherName: String = ""
+    var add: String = ""
+    var bloodGroup: String = ""
+
+
+    constructor(fatherName:String, regNo:Int){
+        this.fatherName = fatherName.capitalize()
+        this.regNo = regNo
+    }
+
+    constructor(motherName:String){
+        this.motherName = motherName
+    }
+}
+
+
 
 fun main(){
 /*   
@@ -141,7 +178,10 @@ fun main(){
     account.withdraw(50f)
     val account = AccountThisExample()
     account.setDetails(1331, "HOBO", 100f)
- */   
     val account  = ConstructorExample(1331, "Hobo", 10000)
     account.getDetails()
+ */ 
+    val student = School("Heil HObo")
+    val student1 = School("Kill Me", 1234)
+    val arr = arrayListOf()
 }
