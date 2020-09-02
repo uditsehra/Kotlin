@@ -103,18 +103,45 @@ Note that parameters of the primary constructor can be used in the initializer b
         }
 
 If the constructor has annotations or visibility modifiers, the constructor keyword is required, and the modifiers go before it:
-        class Customer public @Inject constructor(name: String) { /*...*\ }
+        class Customer public @Inject constructor(name: String) { \*...*\ }
 
-*******************************************************************************/ 
+******************************************************************************************************************************************/ 
 
+/*************************************************************** "init" keyword **********************************************************/
+/*
+ init is used to write the constructor initialisation code.
+Example
+*/
+
+class ConstructorExample(accNo:Int, name: String, ammount: Int)
+{
+    var accNo: Int
+    var name : String
+    var ammount : Int
+
+    init{
+        this.accNo = accNo
+        this.name = name.toUpperCase()
+        this.ammount = ammount
+    }
+
+    fun getDetails()
+    {
+        println("${accNo}\n${name}\n${ammount}")
+    }
+}
 
 
 fun main(){
-//    val account = Account()
-//    account.insertAccountDetails(1331, "Hobo", 1000f)
-//    account.getAccountDetails()
-//    account.deposit(100f)
-//    account.withdraw(50f)
+/*   
+    val account = Account()
+    account.insertAccountDetails(1331, "Hobo", 1000f)
+    account.getAccountDetails()
+    account.deposit(100f)
+    account.withdraw(50f)
     val account = AccountThisExample()
     account.setDetails(1331, "HOBO", 100f)
+ */   
+    val account  = ConstructorExample(1331, "Hobo", 10000)
+    account.getDetails()
 }
