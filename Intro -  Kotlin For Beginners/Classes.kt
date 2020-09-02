@@ -66,6 +66,47 @@ class AccountThisExample{
 
 
 //********************************************Constructors*********************************** */
+/*
+It is a function with same name as class name
+It is used to construct or initialize the class
+Two types of constructors
+1. Primary Constructors - only 1
+2. Secondary Constructors - Multiple secondary constructor
+
+The primary constructor is part of the class header: it goes after the class name (and optional type parameters).
+        class Person constructor(firstName: String) { \*...*\ }
+
+If the primary constructor does not have any annotations or visibility modifiers, the constructor keyword can be omitted:
+        class Person(firstName: String) { \*...*\ }
+        
+The primary constructor cannot contain any code. Initialization code can be placed in initializer blocks, which are prefixed with the ****"init"**** keyword.
+
+During an instance initialization, the initializer blocks are executed in the same order as they appear in the class body, interleaved with the property initializers:
+
+        class InitOrderDemo(name: String) {
+            val firstProperty = "First property: $name".also(::println)
+    
+            init {
+                println("First initializer block that prints ${name}")
+            }
+    
+            val secondProperty = "Second property: ${name.length}".also(::println)
+    
+            init {
+                println("Second initializer block that prints ${name.length}")
+            }
+        }
+
+Note that parameters of the primary constructor can be used in the initializer blocks. They can also be used in property initializers declared in the class body:
+        class Customer(name: String) {
+            val customerKey = name.toUpperCase()
+        }
+
+If the constructor has annotations or visibility modifiers, the constructor keyword is required, and the modifiers go before it:
+        class Customer public @Inject constructor(name: String) { /*...*\ }
+
+*******************************************************************************/ 
+
 
 
 fun main(){
