@@ -10,9 +10,9 @@ fun main(){
 }
 
 
-fun doNothing(isActive:Boolean):Unit{
-    println("Hello")
-}
+// fun doNothing(isActive:Boolean):Unit{
+//     println("Hello")
+// }
 
 fun higherOrderFunctionExample(name:String, doNothing:(isActive:Boolean)->Unit):String{
     if(name == "Buuda"){
@@ -23,3 +23,5 @@ fun higherOrderFunctionExample(name:String, doNothing:(isActive:Boolean)->Unit):
     return "Hi! $name\nHow are you"
 }
 
+//****************************************Lambda Expressions and Anonymous Functions***************************************** */
+max(strings, {a, b -> a.length <b.length})
