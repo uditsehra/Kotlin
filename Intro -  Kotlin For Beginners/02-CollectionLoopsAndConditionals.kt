@@ -66,12 +66,14 @@ fun listExamples(){
     println(nums)
 
     //Removing
-    /*To remove an element at a specific position from a list, use the removeAt() function providing the position as an argument. All indices of elements that come after the element being removed will decrease by one. */
+    /*To remove an element at a specific position from a list, use the removeAt() function providing the position as an argument.
+    All indices of elements that come after the element being removed will decrease by one. */
     val allNums = mutableListOf(1, 2, 3, 4)
     allNums.removeAt(2)
     println(allNums)
 
-    //For removing the first and the last element, there are handy shortcuts removeFirst() and removeLast(). Note that on empty lists, they throw an exception. To receive null instead, use removeFirstOrNull() and removeLastOrNull()
+    //For removing the first and the last element, there are handy shortcuts removeFirst() and removeLast(). Note that on empty lists, they throw an exception.
+    //To receive null instead, use removeFirstOrNull() and removeLastOrNull()
     val number = mutableListOf(1, 2, 3, 4, 5)
     number.removeFirst()
     number.removeLast()
@@ -80,6 +82,13 @@ fun listExamples(){
     val empty = mutableListOf<Int>()
     empty.removeFirstOrNull()
 }
+
+    //Null Lists
+    /*
+    listOf(null,null) => [null, null]
+    var list: List<Int?> = listOf(null, null)       //A list of int which can be null.
+    var list2:List<Int>? = null                     //Defines a null list.
+    */
 
 
 
