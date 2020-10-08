@@ -71,7 +71,7 @@ fun variables(){
         var - is a variable whereas,
         val - is a final value that cannot be reassigned again.
 
-        we can assign values val again but cannot do the same with val,
+        we can assign values var again but cannot do the same with val,
 
         so it is suggested that you should use var if you want to change the values of the variable at a later point
 */
@@ -92,7 +92,7 @@ fun variables(){
 lateinit means late initialization.
 If you do not want to initialize a variable in the constructor instead you want to initialize it later on and if you can guarantee the initialization before using it,
 then declare that variable with lateinit keyword. It will not allocate memory until initialized
-While using 'lateinti'  you must declare the type of the variable
+While using 'lateinit'  you must declare the type of the variable
 */
 lateinit var f: String
 
