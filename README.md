@@ -1,3 +1,3 @@
 # Kotlin
 
-This includes basics of Kotlin for Beginners.
+Coursework for CodingBlocks Kotlin for Beginners course.
